@@ -518,8 +518,7 @@ class ClosestDotSearchAgent(SearchAgent):
     problem = AnyFoodSearchProblem(gameState)
 
     "*** YOUR CODE HERE ***"
-    foods = food.asList()
-    #BFS search will find the closest food
+    #bfs will find the path to the closest food
     path = search.breadthFirstSearch(problem)
     return path
   
@@ -557,11 +556,8 @@ class AnyFoodSearchProblem(PositionSearchProblem):
     x,y = state
     
     "*** YOUR CODE HERE ***"
-    foods = self.food.asList()
-    if state in foods:
-      isGoal = True
-    else:
-      isGoal = False
+    isGoal = state in self.food.asList()
+    
     #print state
     # For display purposes only
     if isGoal:
